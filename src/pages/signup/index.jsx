@@ -2,23 +2,15 @@ import React from 'react';
 import { Input, Button, Checkbox, Form } from 'antd';
 import './style.scss';
 import { Link } from 'react-router-dom';
-import { postUserSignup } from '../../api/api';
 
 const SignUp = () => {
     const [form] = Form.useForm();
 
-    const onFinish = async (values) => {
-        const { firstname, lastname, phonenumber, email, password } = values;
-        try {
-            const response = await postUserSignup({ signupData: { firstname, lastname, phonenumber, email, password } });
-            console.log('Signup successful:', response);
-            // Handle success (e.g., redirect to a login page)
-          } catch (error) {
-            console.error('Signup failed:', error.message);
-            // Handle error (e.g., show an error message to the user)
-          }
+    const onFinish = (values) => {
+        console.log('Form Submitted:', values);
+        // Redirect to the dashboard or next step
+        window.location.href = '/resume-analysis'; // Adjust route as needed
     };
-
 
     return (
         <div className="signup-container">
@@ -51,14 +43,14 @@ const SignUp = () => {
                     <div className="form-row">
                         <Form.Item
                             label="First Name"
-                            name="firstname"
+                            name="firstName"
                             rules={[{ required: true, message: 'Please enter your first name!' }]}
                         >
                             <Input placeholder="Enter your first name" />
                         </Form.Item>
                         <Form.Item
                             label="Last Name"
-                            name="lastname"
+                            name="lastName"
                             rules={[{ required: true, message: 'Please enter your last name!' }]}
                         >
                             <Input placeholder="Enter your last name" />
@@ -67,7 +59,7 @@ const SignUp = () => {
                     <div className="form-row">
                         <Form.Item
                             label="Phone Number"
-                            name="phonenumber"
+                            name="phone"
                             rules={[{ required: true, message: 'Please enter your phone number!' }]}
                         >
                             <Input placeholder="Enter your phone number" />
