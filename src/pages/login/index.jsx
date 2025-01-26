@@ -2,18 +2,14 @@ import React from 'react';
 import { Input, Button, Form } from 'antd';
 import './style.scss';
 import { Link } from 'react-router-dom';
-import { postUserSignin } from '../../api/api';
 
 const Login = () => {
   const [form] = Form.useForm();
 
-  const onFinish = async (data) => {
-    try {
-      const response = await postUserSignin({ signInData: data });
-      console.log('Signup successful:', response);
-    } catch (error) {
-      console.error('Signup failed:', error.message);
-    }
+  const onFinish = (values) => {
+    console.log('Login Successful:', values);
+    // Redirect to the dashboard or homepage
+    window.location.href = '/dashboard'; // Adjust route as needed
   };
 
   return (
@@ -43,7 +39,7 @@ const Login = () => {
         <Form form={form} layout="vertical" onFinish={onFinish}>
           <Form.Item
             label="Email"
-            name="username"
+            name="email"
             rules={[
               { required: true, message: 'Please enter your email!' },
               { type: 'email', message: 'Please enter a valid email!' },
@@ -69,11 +65,11 @@ const Login = () => {
           </Form.Item>
         </Form>
         <div className="login-footer">
-
+         
           <Link to='/forgot-password'>    Forgot Password?</Link>
           <p className="signup-redirect">
-            Don’t have an account?
-            <Link to="/signup" style={{ marginLeft: '10px' }}>Sign Up</Link>
+            Don’t have an account? 
+            <Link to="/signup" style={{marginLeft:'10px'}}>Sign Up</Link>
           </p>
         </div>
       </div>
