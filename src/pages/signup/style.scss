@@ -61,6 +61,7 @@
   
         .ant-form-item {
           flex: 1;
+         
   
           .ant-input {
             height: 40px; /* Consistent height for input fields */
@@ -69,6 +70,8 @@
           }
   
           .ant-input-password {
+            display: flex;
+            align-items: center;
             input {
               height: 40px;
             }
