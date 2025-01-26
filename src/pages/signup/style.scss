@@ -1,0 +1,156 @@
+.signup-container {
+    display: flex;
+  
+    /* Left Banner Section */
+    .signup-banner {
+      width: 50%;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+  
+      .banner-content {
+        max-width: 400px;
+  
+        .banner-image {
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto 20px auto;
+        }
+  
+        .banner-title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+  
+        .banner-text {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+    }
+  
+    /* Registration Form Section */
+    .signup-form-container {
+      width: 50%;
+      background: #ffffff;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333333;
+        margin-bottom: 10px;
+      }
+  
+      .form-description {
+        font-size: 16px;
+        color: #666666;
+        margin-bottom: 30px;
+      }
+  
+      .form-row {
+        display: flex;
+        gap: 20px;
+  
+        .ant-form-item {
+          flex: 1;
+  
+          .ant-input {
+            height: 40px; /* Consistent height for input fields */
+            border-radius: 6px;
+            font-size: 14px;
+          }
+  
+          .ant-input-password {
+            input {
+              height: 40px;
+            }
+          }
+  
+          .ant-input-affix-wrapper {
+            height: 40px;
+          }
+        }
+      }
+  
+      .checkbox-item {
+        margin-top: 10px;
+  
+        .ant-checkbox-wrapper {
+          display: flex;
+          align-items: center;
+  
+          .ant-checkbox {
+            margin-right: 8px;
+          }
+  
+          /* When checkbox is checked */
+          input[type='checkbox']:checked {
+            color: #000 !important; /* Black color for the label */
+            font-size: 14px;
+            accent-color: black !important ;
+  
+            a {
+              color: #000 !important; /* Black color for the link */
+              text-decoration: underline;
+  
+              &:hover {
+                color: #000 !important; /* Keep black color on hover */
+              }
+            }
+          }
+  
+          /* Default state */
+          .checkbox {
+            color: #666666; /* Default gray color for the checkbox label */
+            a {
+              color: #666666;
+              &:hover {
+                color: #666666;
+              }
+            }
+          }
+        }
+      }
+  
+      .signup-button {
+        width: 100%;
+        height: 48px;
+        font-size: 16px;
+        font-weight: bold;
+        background: linear-gradient(135deg, #141617, #161b1f);
+        border: none;
+        color: white;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 6px;
+  
+        &:hover {
+          background: linear-gradient(135deg, #141617, #161b1f);
+        }
+      }
+  
+      .login-redirect {
+        text-align: center;
+        font-size: 14px;
+        color: #666666;
+        margin-top: 20px;
+  
+        a {
+          color: #1890ff;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

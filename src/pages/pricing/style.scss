@@ -1,0 +1,110 @@
+.pricing-section {
+    text-align: center;
+    // padding: 3rem 1rem;
+    background: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    &__title {
+      font-size: 2rem; // Reduced from 2.5rem
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+  
+    &__subtitle {
+      font-size: 1rem; // Reduced from 1.2rem
+      color: #7f8c8d;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px; // Slightly smaller corners
+    padding: 1.5rem; // Reduced padding
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 360px !important;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  
+    &--active {
+      border: 2px solid #191b1c43;
+      background: linear-gradient(145deg, #e6f7ff, #ffffff);
+  
+      .pricing-card__title {
+        color: #1890ff;
+      }
+  
+      .pricing-card__price {
+        color: #096dd9;
+      }
+  
+      .ant-btn {
+        background: #40a9ff;
+        color: white;
+        border: none;
+        font-weight: 500 !important;
+        letter-spacing: 1px !important;
+  
+        &:hover {
+          background: #1890ff;
+        }
+      }
+    }
+  
+    &__tag {
+      position: absolute;
+      top: -10px; // Adjusted for smaller cards
+      right: 10px;
+      font-size: 0.75rem; // Smaller font size for the tag
+      font-weight: bold;
+    }
+  
+    &__title {
+      font-size: 1.5rem; // Reduced from 1.8rem
+      font-weight: bold;
+      color: #34495e;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__price {
+      font-size: 2rem; // Reduced from 2.5rem
+      color: #2c3e50;
+      margin: 0.8rem 0; // Reduced vertical space
+    }
+  
+    &__features {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0; // Reduced margin
+      text-align: left;
+  
+      li {
+        font-size: 0.9rem; // Reduced from 1rem
+        color: #7f8c8d;
+        margin-bottom: 0.6rem; // Reduced spacing between features
+        display: flex;
+        align-items: center;
+  
+        svg {
+          color: #40a9ff;
+          margin-right: 0.4rem;
+        }
+      }
+    }
+  
+    button {
+      font-size: 0.9rem; // Slightly smaller button text
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  }
+  
