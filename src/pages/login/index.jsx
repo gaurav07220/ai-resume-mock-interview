@@ -38,7 +38,7 @@ const Login = () => {
         </p>
         <Form form={form} layout="vertical" onFinish={onFinish}>
           <Form.Item
-            label="Email"
+            label='Email'
             name="email"
             rules={[
               { required: true, message: 'Please enter your email!' },
