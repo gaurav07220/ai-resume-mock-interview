@@ -9,9 +9,10 @@ import ContactSection from './pages/contact';
 import SignUp from './pages/signup';
 import Login from './pages/login';
 import ForgotPassword from './pages/forgotPassword';
+import ResumeAnalyzer from './pages/resumeAnalyze';
 
 function App() {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   const ProtectedRoute = ({ element }) => {
     return isAuthenticated ? element : <Navigate to="/login" replace />;
@@ -29,6 +30,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path="/dashboard" element={<ProtectedRoute element={<div>Dashboard Page</div>} />} />
           <Route path="/profile" element={<ProtectedRoute element={<div>Profile Page</div>} />} />
+          <Route path="/resume-analysis" element={<ProtectedRoute element={<ResumeAnalyzer/>} />} />
         </Routes>
       </div>
     </BrowserRouter>
