@@ -2,7 +2,7 @@ import React from 'react';
 import { Layout, Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import './Header.scss';
+import './style.scss';
 
 const { Header } = Layout;
 
@@ -28,16 +28,25 @@ const profileMenu = (
 
 function AppHeader() {
   return (
-    <Header className="app-header" logo="JobAssist" style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+    <Header
+      className="app-header flex items-center justify-between px-6 shadow-md bg-gradient-to-r from-blue-600 to-indigo-500 text-white"
+      style={{ position: 'fixed', zIndex: 1, width: '100%' }}
+    >
+      {/* Logo Section */}
+      <div className="app-header__logo text-xl font-bold tracking-wide">
+        Career<span className="text-yellow-300">Pulse</span>
+      </div>
 
-      {/* <div className="app-header__logo">JobAssist</div> */}
-      <Menu theme="light" mode="horizontal" className="app-header__menu">
-
-
+      {/* Navigation Menu */}
+      <Menu
+        theme="light"
+        mode="horizontal"
+        className="app-header__menu bg-transparent text-white font-medium"
+        style={{ borderBottom: 'none' }}
+      >
         <Menu.Item key="resume-analysis">
           <Link to="/resume-analysis">Resume</Link>
         </Menu.Item>
-
         <Menu.Item key="resources">
           <Link to="/courses">Courses</Link>
         </Menu.Item>
@@ -47,14 +56,24 @@ function AppHeader() {
         <Menu.Item key="contact">
           <Link to="/contact">Contact</Link>
         </Menu.Item>
-        <Menu.Item key='profile'>
-          <Dropdown overlay={profileMenu} trigger={["click"]} className="app-header__dropdown">
-            <a href="#" onClick={(e) => e.preventDefault()}>
-              Profile <DownOutlined />
-            </a>
-          </Dropdown>
-        </Menu.Item>
       </Menu>
+
+      {/* Profile Dropdown */}
+      <div className="header-profile">
+        <Dropdown
+          overlay={profileMenu}
+          trigger={['click']}
+          className="app-header__dropdown"
+        >
+          <a
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            className="text-white font-medium flex items-center gap-1"
+          >
+            Profile <DownOutlined />
+          </a>
+        </Dropdown>
+      </div>
     </Header>
   );
 }

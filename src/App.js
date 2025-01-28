@@ -26,7 +26,7 @@ function App() {
     <BrowserRouter>
       <div>
         <AppHeader/>
-       <div style={{paddingTop:'100px'}}>
+       <div style={{paddingTop:'50px'}}>
        <Routes>
           <Route path="/" element={<HomeSection/>} />
           <Route path="/pricing" element={<PricingSection/>} />
