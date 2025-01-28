@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as echarts from "echarts";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import "./style.scss";
 
 const ResumeAnalyzer = () => {
   const [analysisResult, setAnalysisResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate(); // Initialize navigate
 
   const staticResumeContent = `
     Experienced Frontend Developer with 5 years of experience in JavaScript, React, and Node.js.
@@ -51,6 +54,14 @@ const ResumeAnalyzer = () => {
       setError("Error analyzing resume. Please try again.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleShowJobs = () => {
+    if (analysisResult) {
+      navigate("/jobs", {
+        state: { strengths: analysisResult.strengths }, // Pass strengths via state
+      });
     }
   };
 
@@ -120,6 +131,10 @@ const ResumeAnalyzer = () => {
                   <li key={index}>{skill}</li>
                 ))}
               </ul>
+              {/* Add the button to redirect to /jobs */}
+              <button className="button show-jobs-button" onClick={handleShowJobs}>
+                Show Matched Jobs
+              </button>
             </div>
           </div>
         )}

@@ -50,3 +50,35 @@ export async function postUserSignin({ signInData }) {
     }
   }
 
+
+
+
+  
+
+const parseResume = async (resumeFile) => {
+  const apiKey = "6Ty4llxzKC4yg3M2tr0IP7KahSSFnLRx"; // Replace with your actual API key
+  const apiUrl = "https://api.apilayer.com/resume_parser";
+
+  try {
+    const formData = new FormData();
+    formData.append("file", resumeFile);
+
+    const response = await axios.post(apiUrl, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "apikey": apiKey,
+      },
+    });
+
+    if (response.status === 200) {
+      console.log("Parsed Resume Data:", response.data);
+      return response.data; // Process the parsed data as needed
+    } else {
+      console.error("Error parsing resume:", response.statusText);
+    }
+  } catch (error) {
+    console.error("API error:", error);
+  }
+};
+
+export default parseResume;

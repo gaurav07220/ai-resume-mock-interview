@@ -10,6 +10,11 @@ import SignUp from './pages/signup';
 import Login from './pages/login';
 import ForgotPassword from './pages/forgotPassword';
 import ResumeAnalyzer from './pages/resumeAnalyze';
+import ResourcesSection from './pages/resources';
+import JobPortalSection from './components/matchedJobs';
+import MockInterview from './pages/mockInterview';
+import Education from './pages/courses';
+import EducationUdemy from './pages/courses/index2';
 
 function App() {
   const isAuthenticated = true;
@@ -21,7 +26,8 @@ function App() {
     <BrowserRouter>
       <div>
         <AppHeader/>
-        <Routes>
+       <div style={{paddingTop:'100px'}}>
+       <Routes>
           <Route path="/" element={<HomeSection/>} />
           <Route path="/pricing" element={<PricingSection/>} />
           <Route path="/contact" element={<ContactSection/>} />
@@ -31,7 +37,12 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoute element={<div>Dashboard Page</div>} />} />
           <Route path="/profile" element={<ProtectedRoute element={<div>Profile Page</div>} />} />
           <Route path="/resume-analysis" element={<ProtectedRoute element={<ResumeAnalyzer/>} />} />
+          <Route path="/resources" element={<ProtectedRoute element={<ResourcesSection/>} />} />
+          <Route path="/jobs" element={<ProtectedRoute element={<JobPortalSection/>} />} />
+          <Route path="/mock-interview" element={<ProtectedRoute element={<MockInterview/>} />} />
+          <Route path="/courses" element={<ProtectedRoute element={<EducationUdemy/>} />} />
         </Routes>
+       </div>
       </div>
     </BrowserRouter>
   );

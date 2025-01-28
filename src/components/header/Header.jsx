@@ -39,7 +39,7 @@ function AppHeader() {
         </Menu.Item>
 
         <Menu.Item key="resources">
-          <Link to="/resources">Resources</Link>
+          <Link to="/courses">Courses</Link>
         </Menu.Item>
         <Menu.Item key="pricing">
           <Link to="/pricing">Pricing</Link>
