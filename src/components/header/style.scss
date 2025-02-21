@@ -4,11 +4,16 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  // justify-content: space-around;
+  justify-content: space-between;
+  max-width: 1600px;
 
   &__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 22px;
+    // font-weight: bold;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
 
     span {
       color: #3f3f3f98; // Yellow accent

@@ -1,22 +1,31 @@
 
 import { Input, Button, Checkbox, Form } from 'antd';
 import './style.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { postUserSignup } from '../../api/api';
+import { useState } from 'react';
+import showToast from '../../components/message/ShowTaost';
 
 const SignUp = () => {
     const [form] = Form.useForm();
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const onFinish = async (values) => {
+        setLoading(true)
         const { firstname, lastname, phonenumber, email, password } = values;
         try {
             const response = await postUserSignup({ signupData: { firstname, lastname, phonenumber, email, password } });
             console.log('Signup successful:', response);
-            // Handle success (e.g., redirect to a login page)
-          } catch (error) {
+            setLoading(false)
+            showToast('success', 'Signup successful! 🎉');
+            navigate('/resume-analysis')
+
+        } catch (error) {
             console.error('Signup failed:', error.message);
-            // Handle error (e.g., show an error message to the user)
-          }
+            showToast('error', error.message);
+            setLoading(false)
+        }
     };
 
 
@@ -122,6 +131,7 @@ const SignUp = () => {
                     </Form.Item>
                     <Form.Item>
                         <Button
+                            loading={loading}
                             type="primary"
                             htmlType="submit"
                             className="signup-button"

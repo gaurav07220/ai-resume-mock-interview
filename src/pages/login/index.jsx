@@ -1,20 +1,32 @@
 
-import { Input, Button, Form } from 'antd';
+import { Input, Button, Form, message } from 'antd';
 import './style.scss';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { postUserSignin } from '../../api/api';
+
+import showToast from '../../components/message/ShowTaost';
+import { useState } from 'react';
 
 
 const Login = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate(); 
+  const [loading, setLoading] = useState(false); // Loading state
 
   const onFinish = async (data) => {
+    setLoading(true)
     try {
       const response = await postUserSignin({ signInData: data });
-      console.log('Signup successful:', response);
+      if (response?.success) {
+        showToast('success', 'Login successful! 🎉');
+        navigate('/resume-analysis')
+        setLoading(false)
+      }
     } catch (error) {
-      console.error('Signup failed:', error.message);
+      showToast('error', error.message);
+      setLoading(false)
     }
+
   };
 
   return (
@@ -61,6 +73,7 @@ const Login = () => {
           </Form.Item>
           <Form.Item>
             <Button
+            loading={loading}
               type="primary"
               htmlType="submit"
               className="login-button"
